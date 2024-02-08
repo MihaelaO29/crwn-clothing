@@ -23,7 +23,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     );
 
     if (existingCartItem.quantity === 1) {
-        return cartItems.filter(cartItem => cartItem.id != cartItemToRemove.id);
+        return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
     }
 
     return cartItems.map((cartItem) =>
@@ -34,7 +34,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 };
 
  const clearCartItem = (cartItems, cartItemToRemove) => 
- cartItems.filter((cartItem => cartItem.id != cartItemToRemove.id)
+ cartItems.filter((cartItem => cartItem.id !== cartItemToRemove.id)
  );
 
 
@@ -55,6 +55,9 @@ export const CartProvider = ({ children }) => {
     const [cartCount, setCartCount] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
+    useEffect(() => {
+        setCartCount(0);
+    }, [])
     useEffect(() => {
         const newCartCount = cartItems.reduce(
             (total, cartItem) => total + cartItem.quantity, 0)
