@@ -17,7 +17,7 @@ cursor: pointer;
 `
 export const ItemCount = styled.span`
       position: absolute;
-      font-size: 5px;
+      font-size: 10px;
       font-weight: bold;
       bottom: 12px;
   `
